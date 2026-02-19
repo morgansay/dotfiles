@@ -57,3 +57,4 @@ eval "$(zoxide init --cmd cd zsh)"
 alias ls='ls -ahl --color'
 alias fetch='fastfetch'
 alias vi='nvim'
+alias code='codium'
