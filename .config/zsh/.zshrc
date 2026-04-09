@@ -12,9 +12,6 @@ export PATH="$PATH:$HOME/.local/bin"
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Add prompt
-eval "$(oh-my-posh init zsh --config='powerlevel10k_lean')"
-
 # Add plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -49,13 +46,40 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+# VCS info
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+zstyle ':vcs_info:git:*' formats '%b '
+
+setopt PROMPT_SUBST
+PROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f%F{green}❯%f '
+RPROMPT='%F{green}%*%f'
+
+#(cat ~/.cache/wal/sequences &)
+
 # Shell integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+#eval "$(zoxide init --cmd z zsh)"
 
 # Aliases
+
+alias logout="[[ -o login ]] && logout || loginctl terminate-user $USER"
+
 alias ls='ls -ahl --color'
-alias fetch='fastfetch'
-alias vi='nvim'
+alias f='fastfetch'
+alias v='nvim'
 alias code='codium'
 
+# Music controls
+alias pp="playerctl play-pause"
+
+# yazi cd on quit
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}

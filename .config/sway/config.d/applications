@@ -1,0 +1,2 @@
+set $term kitty
+set $menu wofi --show drun

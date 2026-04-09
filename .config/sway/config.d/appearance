@@ -1,0 +1,17 @@
+include ~/.cache/wal/colors-sway
+
+set $text           $color8
+
+set $background     $color5
+set $border         $color5
+
+#                           border      background      text        indicator   child_border
+client.focused              $color1     $color0         $color8     $color4     $color5
+#client.focused_inactive     
+#client.focused_tab_title    
+client.unfocused            $color1     $color0         $text       $color4     $color2
+#client.urgent
+
+default_border      pixel   2
+
+seat seat_0 xcursor_theme Bibata-Modern-Classic 24
