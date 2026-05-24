@@ -1,2 +1,4 @@
 .config/kitty/kitty.conf.bak
+.config/kitty/current-theme.conf
 .config/zsh/.zcompdump
+.config/kitty/themes/noctalia.conf
