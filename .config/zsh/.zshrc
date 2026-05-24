@@ -53,7 +53,7 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b '
 
 setopt PROMPT_SUBST
-PROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f%F{green}❯%f '
+PROMPT='%F{blue}%n@%m %~%f %F{red}${vcs_info_msg_0_}%f%F{green}❯%f '
 RPROMPT='%F{green}%*%f'
 
 #(cat ~/.cache/wal/sequences &)
