@@ -1,0 +1,22 @@
+* {
+  font-family: "JetBrainsMono NF", monospace;
+  font-size: 14px;
+}
+
+window {
+  margin: 0px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: black;
+  animation:
+}
+
+#inner-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+}
+
+#outer-box {
+  margin: 0px;
+}
