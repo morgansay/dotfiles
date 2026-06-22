@@ -83,3 +83,8 @@ function y() {
     fi
     rm -f -- "$tmp"
 }
+
+function mkcd() {
+    mkdir -p "$1"
+    cd "$1"
+}
