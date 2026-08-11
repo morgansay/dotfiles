@@ -69,7 +69,7 @@ alias logout="[[ -o login ]] && logout || loginctl terminate-user $USER"
 alias ls='ls -ahl --color'
 alias f='fastfetch'
 alias v='nvim'
-alias code='codium'
+#alias code='codium'
 
 # Music controls
 alias pp="playerctl play-pause"
