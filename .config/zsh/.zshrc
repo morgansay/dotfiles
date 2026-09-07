@@ -64,6 +64,8 @@ eval "$(fzf --zsh)"
 
 # Aliases
 
+source "$ZDOTDIR/ssh"
+
 alias logout="[[ -o login ]] && logout || loginctl terminate-user $USER"
 
 alias ls='ls -ahl --color'
